@@ -99,4 +99,22 @@ public class Auction
             return null;
         }
     }
+    
+    /**
+     * End the auction
+     */
+    public void close() {
+        for (Lot lot : lots) {
+            String sold = "vendido a: ";
+            String name = "";
+            if (lot.getHighestBid() == null) {
+                sold = "no vendido";
+            }
+            else {
+                name = lot.getHighestBid().getBidder().getName();
+            }
+            System.out.println(lot.toString() + ": " + sold + name);
+        }
+    }
+    
 }
